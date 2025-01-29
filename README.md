@@ -146,3 +146,15 @@ Now let's see what traffic looks like without the encryption keys applied.
 ![Screenshot 2025-01-28 182555](https://github.com/user-attachments/assets/bcdb0e71-0518-46eb-be88-1006f6bd17ab)
 
 Wireshark can no longer identify DoH traffic without the decryption keys applied. DNS will lok like any other TLS traffic without decryption. 
+
+
+### Additional Question
+
+Use a dig command to check the google.com CAA type record and examine the output to find the authoritative Certificate Authority that is designated by Google for which server should be issuing all certificates. 
+- To do this using DNS, we check the CAA (Certificate Authority Authorization) record.
+- If we issue the command "dig google.com CAA"  we receive a response that has a line that contains the word issue on it.
+
+
+![Screenshot 2025-01-29 075630](https://github.com/user-attachments/assets/eff9136c-1d76-450c-8e8c-0a33078df79c)
+
+Final line shows that Google says that ONLY pki.goog is authorized to generate a certificate for the google.com domain.
